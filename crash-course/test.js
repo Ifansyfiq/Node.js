@@ -1,3 +1,15 @@
-const name = 'yoshi';
+// global object
 
-console.log(name);
+
+// global == windows
+
+// console.log(global)
+
+// global.setTimeout(() => {
+//     console.log('finish')
+// },3000)
+
+setTimeout(() => {
+    console.log('finish')
+},3000)
+
