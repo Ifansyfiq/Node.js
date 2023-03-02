@@ -11,5 +11,9 @@
 
 setTimeout(() => {
     console.log('finish')
+    clearInterval(int)
 },3000)
 
+const int = setInterval(()=>{
+    console.log('in the Interval')
+},1000)
