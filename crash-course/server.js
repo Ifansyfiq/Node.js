@@ -1,9 +1,21 @@
 const http = require('http')
 const fs = require('fs')
+const _ = require('lodash')
 
 const server = http.createServer((req, res)=>{
     // request   
-    console.log(req.url, req.method)
+   // console.log(req.url, req.method)
+
+    //lodash
+    const num = _.random(0 , 20) // pick random num between 0 - 20
+    console.log(num)
+    
+    const greet = _.once(()=>{ //run only once
+        console.log('hello')
+    })
+
+    greet()
+    greet()
 
     // response (basic)
     // res.setHeader('Content-Type', 'text/html')
