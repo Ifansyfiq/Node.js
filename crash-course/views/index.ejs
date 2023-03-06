@@ -1,9 +1,5 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hayai Blog | <%= title %></title>
-</head>
+  <%- include('./partials/head.ejs') %>
 <body>
   
     <%- include('./partials/nav.ejs') %>
@@ -21,6 +17,7 @@
             <% } %>
     </div>
 
+    <%- include('./partials/footer.ejs') %>
 </body>
 
 </html>
