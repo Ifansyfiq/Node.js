@@ -11,7 +11,12 @@ app.listen(3000);
 
 app.get('/', (req,res)=>{
     // res.send('HAYAI')
-    res.render('index', {title: 'homepage'}) 
+    blog = [
+        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+    ]
+    res.render('index', {title: 'homepage', blogs: blog}) 
 })
 
 app.get('/about', (req,res)=>{
