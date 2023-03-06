@@ -11,7 +11,7 @@ app.listen(3000);
 
 app.get('/', (req,res)=>{
     // res.send('HAYAI')
-    res.render('index') 
+    res.render('index', {title: 'homepage'}) 
 })
 
 app.get('/about', (req,res)=>{
