@@ -9,11 +9,12 @@ app.set('view engine', 'ejs')
 // listen for request 
 app.listen(3000);
 
-app.use((req,res) => {
+app.use((req,res,next) => {
     console.log('Request Details')
     console.log('Host:', req.hostname)
     console.log('Path:', req.path)
     console.log('Method:', req.method)
+    next();
 })
 
 app.get('/', (req,res)=>{
