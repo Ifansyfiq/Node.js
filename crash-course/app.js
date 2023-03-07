@@ -10,6 +10,7 @@ app.set('view engine', 'ejs')
 // listen for request 
 app.listen(3000);
 
+// middleware
 // app.use((req,res,next) => {
 //     console.log('Request Details')
 //     console.log('Host:', req.hostname)
@@ -18,6 +19,10 @@ app.listen(3000);
 //     next();
 // })
 
+// middleware & static file
+app.use(express.static('public'));
+
+// morgan
 app.use(morgan('dev'));
 
 app.get('/', (req,res)=>{
