@@ -6,7 +6,12 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect mongodb
-const dbURI = 'mongodb+srv://hayai:fEE!t_AYqrn4nNH@nodetuts.fpok7xg.mongodb.net/test'
+const dbURI = 'mongodb+srv://hayai:fEE!t_AYqrn4nNH@nodetuts.fpok7xg.mongodb.net/nodetuts'
+
+// connect mongoose
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) => console.log('connect to db'))
+    .catch((err) => console.log(err))
 
 // view engine
 app.set('view engine', 'ejs')
