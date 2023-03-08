@@ -8,16 +8,14 @@ const app = express();
 // connect mongodb
 const dbURI = 'mongodb+srv://hayai:fEE!t_AYqrn4nNH@nodetuts.fpok7xg.mongodb.net/nodetuts'
 
-// connect mongoose
+// connect mongoose & listen for request
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => console.log('connect to db'))
+    .then((result) => app.listen(3000)) // after db connect then listen to request
     .catch((err) => console.log(err))
 
 // view engine
 app.set('view engine', 'ejs')
 
-// listen for request 
-app.listen(3000);
 
 // middleware
 // app.use((req,res,next) => {
