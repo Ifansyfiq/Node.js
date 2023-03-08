@@ -30,21 +30,23 @@ app.set('view engine', 'ejs')
 // middleware & static file
 app.use(express.static('public'));
 
-app.get('/add-blog', (req, res) => {
-    const blog = new Blog({
-      title: 'new blog',
-      snippet: 'about my new blog',
-      body: 'more about my new blog'
-    })
+
+// mongoose & mongo tests
+// app.get('/add-blog', (req, res) => {
+//     const blog = new Blog({
+//       title: 'new blog',
+//       snippet: 'about my new blog',
+//       body: 'more about my new blog'
+//     })
   
-    blog.save()
-      .then(result => {
-        res.send(result);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  });
+//     blog.save()
+//       .then(result => {
+//         res.send(result);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//   });
 
 
 // morgan
@@ -52,17 +54,23 @@ app.use(morgan('dev'));
 
 app.get('/', (req,res)=>{
     // res.send('HAYAI')
-    blog = [
-        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    ]
-    res.render('index', {title: 'homepage', blogs: blog}) 
+    blog = res.redirect('/blogs')
 })
 
 app.get('/about', (req,res)=>{
     // res.send('About HAYAI')
     res.render('about', {title: 'about'})
+})
+
+// blogs routes
+app.get('/blogs', (req,res) => {
+    Blog.find().sort({ createdAt: -1 })
+        .then(result => {
+            res.render('index', {blogs: result, title: 'All Blogs'})
+        })
+        .catch(err => {
+            console.log(err)
+        })
 })
 
 app.get('/blogs/create', (req,res) => {
