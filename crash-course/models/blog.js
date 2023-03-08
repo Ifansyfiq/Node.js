@@ -16,5 +16,5 @@ const blogSchema = new Schema({
     }
 }, {timestamps: true});
 
-const Blog = mongoose.model('Blog', blogSchema)
-module.exports = Blog
+const Blog = mongoose.model('Blog', blogSchema) //look Blog name and plularize with database to comm into db
+module.exports = Blog // use somewhere
