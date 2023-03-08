@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect mongodb
-const dbURI = 'mongodb+srv://hayai:fEE!t_AYqrn4nNH@nodetuts.fpok7xg.mongodb.net/nodetuts'
+const dbURI = 'mongodb+srv://hayai:fEE!t_AYqrn4nNH@node-tuts.fpok7xg.mongodb.net/node-tuts'
 
 // connect mongoose & listen for request
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
