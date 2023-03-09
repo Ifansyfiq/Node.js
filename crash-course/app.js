@@ -85,6 +85,10 @@ app.post('/blogs', (req,res) => {
     })
 })
 
+app.get('/blogs/create', (req,res) => {
+    res.render('create', {title: 'create new blog'})
+})
+
 
 app.get('/blogs/:id',  (req,res) => {
     const id = req.params.id //define id 
@@ -98,9 +102,6 @@ app.get('/blogs/:id',  (req,res) => {
         })
 })
 
-app.get('/blogs/create', (req,res) => {
-    res.render('create', {title: 'create new blog'})
-})
 
 // 404
 app.use((req,res)=>{
