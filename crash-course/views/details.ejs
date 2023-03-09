@@ -13,6 +13,22 @@
 
 
   <%- include('./partials/footer.ejs') %>
+
+  <script>//run on front end (browser)
+    const trashcan = document.querySelector('a.delete');
+
+    trashcan.addEventListener('click', (e) => {
+        const endpoint = `/blogs/${trashcan.dataset.doc}`;
+    })
+
+    fetch(endpoint, {
+        method: 'DELETE',
+    })
+        .then(res => )
+        .then(data => )
+        .catch(err => console.log(err))
+  </script>
+
 </body>
 
 </html>
