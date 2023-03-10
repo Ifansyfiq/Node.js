@@ -42,7 +42,7 @@ const blog_create_post = (req,res) => {
             res.render('blogs/details', { blog: result, title: 'Blog Details'})
         })
         .catch(err => {
-            console.log(err)
+            res.status(404).render('404', {title: 'Blog not found'})
         })
 }
 
@@ -55,7 +55,7 @@ const blog_delete = (req,res) => {
             res.json({redirect: '/blogs'})
         })
         .catch(err => {
-            console.log(err)
+            res.status(404).render('404', {title: 'Blog not found'})
         })
 }
 
