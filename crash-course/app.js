@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes'); 
-const { result } = require('lodash');
+//const { result } = require('lodash');
 
 // express app
 const app = express();
@@ -31,6 +31,11 @@ app.set('view engine', 'ejs')
 // middleware & static file
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    next();
+  });
 
 // mongoose & mongo tests
 // app.get('/add-blog', (req, res) => {
@@ -50,9 +55,6 @@ app.use(express.urlencoded({ extended: true }));
 //   });
 
 
-// morgan
-app.use(morgan('dev'));
-
 app.get('/', (req,res)=>{
     // res.send('HAYAI')
     blog = res.redirect('/blogs')
@@ -71,6 +73,6 @@ app.use('/blogs' ,blogRoutes);
 // 404
 app.use((req,res)=>{
     res.status(404).render('404', {title: '404'})
-})
+});
 
 
