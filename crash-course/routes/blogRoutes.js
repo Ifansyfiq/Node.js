@@ -1,5 +1,5 @@
 const express = require('express');
-const Blog = require('../models/blog');
+
 
 // define router 
 const router = express.Router();
