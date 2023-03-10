@@ -1,16 +1,18 @@
 // Naming conventions : blog_index, blog_details, blog_create_get, blog_create_post, blog_delete
-
 const Blog = require('../models/blog');
+
 
 const blog_index = (req,res) => {
     Blog.find().sort({ createdAt: -1 })
     .then(result => {
-        res.render('index', {blogs: result, title: 'All Blogs'})
+        res.render('blogs/index', {blogs: result, title: 'All Blogs'})
     })
     .catch(err => {
         console.log(err)
     })
 }
+
+
 
 const blog_details = (req,res) => {
     const blog = new Blog(req.body)
@@ -24,16 +26,20 @@ const blog_details = (req,res) => {
      })
 }
 
+
+
 const blog_create_get = (req,res) => {
-    res.render('create', {title: 'create new blog'})
+    res.render('blogs/create', {title: 'create new blog'})
 }
+
+
 
 const blog_create_post = (req,res) => {
     const id = req.params.id //define id 
 
     Blog.findById(id)
         .then(result => {
-            res.render('details', { blog: result, title: 'Blog Details'})
+            res.render('blogs/details', { blog: result, title: 'Blog Details'})
         })
         .catch(err => {
             console.log(err)
